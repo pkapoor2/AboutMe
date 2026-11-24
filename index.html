@@ -1,455 +1,402 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Prateek Kapoor - Engineering Manager</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <!-- Chosen Palette: Tech Professional -->
-    <!-- Application Structure Plan: The SPA uses a top navigation bar for non-linear exploration of key resume sections: Overview, Experience, Skills, and Innovation. This structure is more user-friendly than a linear document, allowing a recruiter to jump directly to the information they need. The Experience section is designed as an interactive timeline, where users can click to expand details for each role, keeping the initial view clean and focused. Key metrics are highlighted as 'stat cards' to draw immediate attention to major accomplishments. This design prioritizes scannability and interactive discovery over passive reading. -->
-    <!-- Visualization & Content Choices: 
-        - Professional Summary -> Inform -> Prominent text in a hero section -> Justification: Creates a strong first impression. -> HTML/CSS.
-        - Core Competencies -> Organize -> Grouped lists in a grid layout -> Justification: Easy to scan and visually separates different skill areas. -> HTML/CSS.
-        - Professional Experience -> Show Change & Detail -> Interactive vertical timeline -> Justification: Classic, intuitive structure for career progression. Click-to-expand interaction reduces initial clutter. -> HTML/CSS/JS.
-        - Key Metrics (e.g., 90% reduction) -> Compare & Inform -> Stat cards with large numbers -> Justification: Visually emphasizes high-impact achievements. -> HTML/CSS.
-        - Patents/Publications -> Provide Proof -> Linked list -> Justification: Provides direct access to source material for validation. -> HTML/CSS.
-        CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <meta name="description" content="Prateek Kapoor — hands-on cloud engineering leader building practical engineering agents, evaluation systems, and developer infrastructure.">
+    <meta name="color-scheme" content="light">
+    <title>Prateek Kapoor — Engineering leadership, grounded in building</title>
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
+        :root { --paper: #f7f8f4; --ink: #142a3c; --muted: #50616d; --teal: #006b68; --line: #d9e2df; --navy: #102638; --cyan: #81e4e4; }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; scroll-padding-top: 7rem; }
+        body { margin: 0; background: var(--paper); color: var(--ink); font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; line-height: 1.7; }
+        a { color: var(--teal); text-underline-offset: .25em; }
+        a:hover { text-decoration-thickness: 2px; }
+        a, button, summary { -webkit-tap-highlight-color: transparent; }
+        :focus-visible { outline: 3px solid #007e93; outline-offset: 5px; }
+        h1, h2, h3, p { margin-top: 0; }
+        h1, h2, h3 { line-height: 1.15; letter-spacing: -.035em; }
+        h1 { font-size: clamp(2.35rem, 5.6vw, 4.9rem); margin-bottom: 1.5rem; }
+        h2 { font-size: clamp(1.85rem, 3.5vw, 3rem); margin-bottom: 1rem; }
+        h3 { font-size: 1.25rem; letter-spacing: -.02em; }
+        p { margin-bottom: 1rem; }
+        .wrap { width: min(1120px, calc(100% - 3rem)); margin-inline: auto; }
+        .skip { position: fixed; top: -6rem; left: 1rem; z-index: 10; padding: .7rem 1rem; background: white; }
+        .skip:focus { top: 1rem; }
+        header { position: sticky; top: 0; z-index: 5; background: var(--paper); border-bottom: 1px solid var(--line); }
+        .nav-row { display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; min-height: 5rem; }
+        .brand { font-weight: 750; text-decoration: none; color: var(--ink); letter-spacing: -.025em; }
+        .brand span { color: var(--teal); }
+        .nav-links { display: flex; flex-wrap: wrap; gap: 1.5rem; align-items: center; }
+        .nav-links a { font-size: .9rem; font-weight: 600; text-decoration: none; color: var(--ink); padding-block: .6rem; }
+        .nav-links a:hover { color: var(--teal); text-decoration: underline; }
+        .menu-button { display: none; font: inherit; font-weight: 650; color: var(--ink); background: white; border: 1px solid var(--line); border-radius: .6rem; padding: .6rem .85rem; cursor: pointer; }
+        .eyebrow { color: var(--teal); font-size: .75rem; font-weight: 750; letter-spacing: .13em; text-transform: uppercase; margin-bottom: 1.2rem; }
+        .hero { display: grid; grid-template-columns: 1.7fr 1fr; gap: 4rem; align-items: center; padding-block: 6rem 4rem; }
+        .hero h1 span { color: var(--teal); }
+        .lead { font-size: 1.1rem; color: var(--muted); max-width: 65ch; }
+        .actions { display: flex; flex-wrap: wrap; gap: .8rem; margin-top: 1.8rem; }
+        .button { display: inline-flex; align-items: center; justify-content: center; padding: .8rem 1.2rem; border-radius: .65rem; font-weight: 650; text-decoration: none; border: 1px solid var(--teal); }
+        .button.primary { background: var(--teal); color: white; }
+        .button:hover { box-shadow: 0 4px 12px #10263815; }
+        .hero-note { border: 1px solid var(--line); border-radius: 1.3rem; padding: 2rem; background: linear-gradient(140deg, #fff, #eaf3ee); }
+        .monogram { display: grid; place-items: center; width: 4rem; height: 4rem; background: var(--navy); color: var(--cyan); border-radius: 1rem; font-size: 1.3rem; font-weight: 750; margin-bottom: 2rem; }
+        .hero-note h2 { font-size: 1.45rem; }
+        .hero-note p { font-size: .95rem; color: var(--muted); }
+        .hero-note .note-bottom { border-top: 1px solid var(--line); padding-top: 1rem; margin-bottom: 0; }
+        .metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 5rem; }
+        .metric { padding: 1.5rem; background: white; border: 1px solid var(--line); border-radius: 1rem; }
+        .metric strong { display: block; font-size: 2.3rem; line-height: 1.15; letter-spacing: -.04em; color: var(--teal); }
+        .metric h2 { font-size: 1rem; margin: .6rem 0; letter-spacing: 0; }
+        .metric p { font-size: .85rem; color: var(--muted); margin: 0; }
+        section { margin-bottom: 5rem; }
+        .section-head { max-width: 730px; margin-bottom: 2rem; }
+        .section-head p:last-child { color: var(--muted); }
+        .journey { background: radial-gradient(ellipse at top right, #174b5b, transparent 65%), var(--navy); color: #f7fbff; border-radius: 1.5rem; padding: clamp(1.5rem, 4.5vw, 3.5rem); }
+        .journey .eyebrow { color: var(--cyan); }
+        .journey .section-head p:last-child, .journey li p { color: #c5d7e0; }
+        .steps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; padding: 0; list-style: none; margin: 2rem 0; }
+        .steps li { border: 1px solid #48606f; padding: 1.7rem; border-radius: 1rem; background: #ffffff04; }
+        .steps li:last-child { border-color: #64cbcb; }
+        .step-number { display: block; color: var(--cyan); font-size: .8rem; letter-spacing: .1em; margin-bottom: 1rem; }
+        .steps h3 { font-size: 1.4rem; }
+        .steps p { margin-bottom: 0; font-size: .95rem; }
+        .journey a { color: var(--cyan); }
+        .principle { border-top: 1px solid #48606f; padding-top: 1.5rem; margin-bottom: 0; color: #c5d7e0; }
+        .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+        .card { border: 1px solid var(--line); border-radius: 1rem; padding: 1.6rem; background: white; }
+        .card p, .card li { color: var(--muted); font-size: .95rem; }
+        .card ul { padding-left: 1.2rem; margin-bottom: 0; }
+        .card li + li { margin-top: .45rem; }
+        .card-label { color: var(--teal); display: block; font-size: .75rem; font-weight: 750; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 1rem; }
+        .architecture { margin-top: 1rem; }
+        details { border: 1px solid var(--line); border-radius: 1rem; background: white; }
+        summary { cursor: pointer; padding: 1.2rem 1.5rem; font-weight: 650; }
+        summary:hover { color: var(--teal); }
+        details[open] summary { border-bottom: 1px solid var(--line); }
+        .detail-body { padding: 1.5rem; }
+        .detail-body p:last-child { margin-bottom: 0; }
+        .flow { display: flex; flex-wrap: wrap; gap: .7rem; padding: 0; list-style-position: inside; margin-top: 0; }
+        .flow li { padding: .5rem .8rem; background: #eef5f2; border-radius: .5rem; font-size: .85rem; }
+        .two-col { display: grid; grid-template-columns: 1.1fr 1fr; gap: 2rem; }
+        .current-role { padding: 2rem; border-left: 4px solid var(--teal); background: white; border-radius: 0 1rem 1rem 0; margin-bottom: 1rem; }
+        .date { color: var(--teal); font-size: .85rem; font-weight: 600; }
+        .role-list { list-style: none; padding: 0; margin: 0; }
+        .role-list li { padding-bottom: 1.2rem; margin-bottom: 1.2rem; border-bottom: 1px solid var(--line); }
+        .role-list li:last-child { padding-bottom: 0; margin-bottom: 0; border: 0; }
+        .role-list h3 { font-size: 1rem; margin-bottom: .35rem; }
+        .role-list p { font-size: .9rem; margin-bottom: .25rem; color: var(--muted); }
+        .tags { display: flex; flex-wrap: wrap; list-style: none; padding: 0; gap: .5rem; margin-bottom: 0; }
+        .tags li { padding: .35rem .7rem; border: 1px solid var(--line); border-radius: .5rem; font-size: .85rem; background: white; }
+        .craft-heading { margin-top: 2rem; }
+        .benchmark { background: #eaf3ee; border: 1px solid #c8dcd3; border-radius: 1rem; padding: 2rem; }
+        .comparison { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin-block: 1.5rem; }
+        .comparison div { background: #ffffffb0; padding: 1.2rem; border-radius: .6rem; }
+        .comparison dt { font-size: .85rem; font-weight: 650; }
+        .comparison dd { margin: .4rem 0 0; font-size: 1.25rem; font-weight: 750; }
+        .fine { font-size: .85rem; color: var(--muted); }
+        .education { list-style: none; padding: 0; }
+        .education li { margin-bottom: 1.3rem; }
+        .education strong { display: block; }
+        .contact { padding: clamp(1.5rem, 4vw, 3rem); border: 1px solid var(--line); background: white; border-radius: 1.5rem; }
+        .contact .two-col { align-items: center; }
+        .contact-links { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; }
+        .contact-links a { padding-block: .5rem; font-weight: 650; }
+        footer { padding-block: 1.5rem 2.5rem; border-top: 1px solid var(--line); font-size: .8rem; color: var(--muted); }
+        footer .wrap { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
+        @media (max-width: 900px) {
+            .hero { gap: 2rem; grid-template-columns: 1.5fr 1fr; }
+            .grid { grid-template-columns: 1fr; }
+            .nav-links { gap: 1rem; }
         }
-        .nav-link {
-            position: relative;
-            transition: color 0.3s ease;
+        @media (max-width: 720px) {
+            html { scroll-padding-top: 6rem; }
+            .wrap { width: calc(100% - 2rem); }
+            .nav-row { flex-wrap: wrap; gap: 0; padding-block: .9rem; min-height: 4.5rem; }
+            .nav-links { width: 100%; gap: .2rem .9rem; padding-top: .7rem; }
+            .nav-links a { padding: .65rem .25rem; }
+            .nav-ready .menu-button { display: block; }
+            .nav-ready .nav-links { display: none; }
+            .nav-ready .nav-links.is-open { display: flex; }
+            .hero, .two-col { grid-template-columns: 1fr; gap: 1.5rem; }
+            .hero { padding-block: 3rem 2rem; }
+            .hero-note { padding: 1.5rem; }
+            .monogram { margin-bottom: 1.2rem; }
+            .metrics { grid-template-columns: 1fr; margin-bottom: 3rem; }
+            .metric { padding: 1.2rem; }
+            .metric strong { font-size: 2rem; }
+            .steps { grid-template-columns: 1fr; }
+            .steps li { padding: 1.3rem; }
+            section { margin-bottom: 3rem; }
+            .comparison { grid-template-columns: 1fr; }
+            .benchmark, .current-role { padding: 1.5rem; }
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -4px;
-            left: 50%;
-            background-color: #0891b2;
-            transition: all 0.3s ease;
-            transform: translateX(-50%);
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            *, *::before, *::after { animation: none !important; transition: none !important; }
         }
-        .nav-link:hover::after, .nav-link.active::after {
-            width: 100%;
-        }
-        .timeline-item-content {
-            transition: max-height 0.5s ease-in-out, opacity 0.5s ease-in-out;
-            max-height: 0;
-            opacity: 0;
-            overflow: hidden;
-        }
-        .timeline-item-content.open {
-            max-height: 1000px; /* Adjust as needed */
-            opacity: 1;
-        }
-        .star-card .star-item {
-            display: flex;
-            align-items: flex-start;
-        }
-        .star-card .star-label {
-            flex-shrink: 0;
-            font-weight: 700;
-            color: #0891b2;
-            width: 80px;
+        @media print {
+            header, .skip, .menu-button { display: none; }
+            body { background: white; }
+            .wrap { width: 100%; }
+            .hero { padding-top: 0; }
+            .journey { background: #102638; print-color-adjust: exact; }
+            section { break-inside: avoid; }
         }
     </style>
 </head>
-<body class="antialiased">
-
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="text-2xl font-bold text-gray-800">
-                <a href="#overview">Prateek Kapoor</a>
-            </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#experience" class="nav-link text-gray-600 hover:text-cyan-700 font-medium">Experience</a>
-                <a href="#skills" class="nav-link text-gray-600 hover:text-cyan-700 font-medium">Skills</a>
-                <a href="#accomplishments" class="nav-link text-gray-600 hover:text-cyan-700 font-medium">Accomplishments</a>
-                <a href="#innovation" class="nav-link text-gray-600 hover:text-cyan-700 font-medium">Innovation</a>
-                <a href="mailto:prateek.kapoor83@gmail.com" class="bg-cyan-600 hover:bg-cyan-700 text-white font-bold py-2 px-4 rounded-full transition-colors duration-300">Contact Me</a>
-            </div>
-            <div class="md:hidden">
-                <button id="mobile-menu-button" class="text-gray-700 focus:outline-none">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                </button>
+<body>
+    <a class="skip" href="#main">Skip to content</a>
+    <header>
+        <nav class="wrap nav-row" aria-label="Main navigation">
+            <a class="brand" href="#overview">Prateek Kapoor<span aria-hidden="true"> /</span></a>
+            <button class="menu-button" id="menu-button" type="button" aria-expanded="false" aria-controls="navigation">Menu</button>
+            <div class="nav-links" id="navigation">
+                <a href="#journey">Journey</a>
+                <a href="#systems">Systems</a>
+                <a href="#career">Career</a>
+                <a href="#research">Research</a>
+                <a href="#contact">Contact</a>
             </div>
         </nav>
-        <div id="mobile-menu" class="hidden md:hidden">
-            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-gray-200">Experience</a>
-            <a href="#skills" class="block py-2 px-4 text-sm hover:bg-gray-200">Skills</a>
-            <a href="#accomplishments" class="block py-2 px-4 text-sm hover:bg-gray-200">Accomplishments</a>
-            <a href="#innovation" class="block py-2 px-4 text-sm hover:bg-gray-200">Innovation</a>
-            <a href="mailto:prateek.kapoor83@gmail.com" class="block py-2 px-4 text-sm hover:bg-gray-200">Contact Me</a>
-        </div>
     </header>
-
-    <main class="container mx-auto px-6 py-8 md:py-16">
-
-        <section id="overview" class="min-h-[60vh] flex items-center">
-            <div class="w-full">
-                <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight mb-4">Engineering Manager</h1>
-                <h2 class="text-2xl md:text-4xl font-semibold text-cyan-700 mb-6">Test Automation & System Quality</h2>
-                <p class="max-w-4xl text-lg text-gray-600 leading-relaxed">
-                    Results-driven Engineering Manager with over 15 years of industry experience, including 3+ years in formal management and a decade of team leadership in complex, distributed systems. Expert in architecting scalable Pytest automation frameworks from the ground up, integrated into CI/CD pipelines to accelerate innovation and developer velocity. A hands-on leader with deep knowledge of Python, Linux OS/Kernel internals, and security threat modeling, passionate about mentoring engineers and driving a 'shift-left' culture of quality.
-                </p>
+    <main class="wrap" id="main" tabindex="-1">
+        <section class="hero" id="overview" aria-labelledby="hero-title">
+            <div>
+                <p class="eyebrow">Cloud systems · Engineering agents · People</p>
+                <h1 id="hero-title">Engineering leadership.<br><span>Grounded in building.</span></h1>
+                <p class="lead">I'm Prateek Kapoor, Senior Cloud Engineering Manager at HPE Aruba Networking. I lead 15 direct reports and stay close to the code: building agent infrastructure, evaluating behavior, and turning experiments into useful engineering workflows.</p>
+                <p class="lead">My foundation is networking, distributed systems, and test automation. Since 2025, my professional agent work has brought those disciplines into live engineering systems.</p>
+                <div class="actions">
+                    <a class="button primary" href="#systems">Explore the systems <span aria-hidden="true">&nbsp;↗</span></a>
+                    <a class="button" href="#contact">Let's connect</a>
+                </div>
             </div>
+            <aside class="hero-note" aria-label="Working philosophy">
+                <div class="monogram" aria-hidden="true">PK</div>
+                <p class="eyebrow">Builder + leader</p>
+                <h2>Useful beats impressive.</h2>
+                <p>Start with a real workflow. Make decisions observable. Bound the tools, context, and budget. Keep people in control.</p>
+                <p class="note-bottom">From hands-on model learning to agents that support everyday engineering.</p>
+            </aside>
         </section>
 
-        <section id="experience" class="py-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Professional Experience</h2>
-                <p class="text-lg text-gray-500 mt-2">A timeline of my career growth and key accomplishments.</p>
-            </div>
-            <div class="relative max-w-4xl mx-auto">
-                <div class="absolute left-1/2 -translate-x-1/2 h-full w-0.5 bg-gray-300"></div>
-                
-                <div class="timeline-item mt-8">
-                    <div class="flex items-center w-full">
-                        <div class="w-1/2 pr-8 text-right">
-                            <div class="p-4 bg-white rounded-lg shadow-md">
-                                <p class="font-bold text-cyan-700">System Test Manager</p>
-                                <p class="text-sm font-medium text-gray-600">Hewlett Packard Enterprise</p>
-                                <p class="text-xs text-gray-500">Feb 2022 - Present</p>
-                            </div>
-                        </div>
-                        <div class="w-1/2 pl-8 relative">
-                            <div class="absolute -left-1.5 top-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-600 rounded-full border-4 border-white"></div>
-                            <button class="toggle-button text-left w-full text-lg font-semibold text-gray-700 hover:text-cyan-700 transition-colors">
-                                Cloud Services & AI Initiatives
-                                <span class="text-cyan-600 text-sm font-normal">(Click to expand)</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="timeline-item-content mt-4 pl-0 md:pl-[50%] md:ml-8">
-                        <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-cyan-100">
-                             <ul class="space-y-3 list-disc list-inside text-gray-600">
-                                <li>Architected and led the agile implementation of a robust, scalable Pytest-based automation framework from scratch, reducing manual testing efforts by over 90%.</li>
-                                <li>Led and mentored a high-performing team of 8 test engineers, fostering a culture of continuous improvement.</li>
-                                <li>Pioneered the practical application of AI in testing by building and deploying ML inference pipelines (Langchain, Hugging Face).</li>
-                                <li>Enhanced security posture by obtaining professional certification in threat modeling (May 2025) and integrating threat analysis into the quality engineering lifecycle.</li>
-                                <li>Drove down cloud operational costs by optimizing logging architectures and right-sizing public cloud cluster deployments.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item mt-8">
-                     <div class="flex items-center w-full flex-row-reverse">
-                        <div class="w-1/2 pl-8 text-left">
-                            <div class="p-4 bg-white rounded-lg shadow-md">
-                                <p class="font-bold text-cyan-700">System Test Engineer</p>
-                                <p class="text-sm font-medium text-gray-600">Hewlett Packard Enterprise</p>
-                                <p class="text-xs text-gray-500">Feb 2018 - Feb 2022</p>
-                            </div>
-                        </div>
-                        <div class="w-1/2 pr-8 relative text-right">
-                            <div class="absolute -right-1.5 top-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-600 rounded-full border-4 border-white"></div>
-                             <button class="toggle-button text-right w-full text-lg font-semibold text-gray-700 hover:text-cyan-700 transition-colors">
-                                <span class="text-cyan-600 text-sm font-normal">(Click to expand)</span>
-                                Cloud Services
-                            </button>
-                        </div>
-                    </div>
-                     <div class="timeline-item-content mt-4 pr-0 md:pr-[50%] md:mr-8 text-right">
-                        <div class="p-6 bg-white rounded-lg shadow-md border-r-4 border-cyan-100 inline-block text-left">
-                             <ul class="space-y-3 list-disc list-inside text-gray-600">
-                                <li>Automated mission-critical testing scenarios using Python and Pytest, achieving a 90% reduction in manual execution time.</li>
-                                <li>Played an instrumental role in the end-to-end testing of sophisticated SD-WAN features (DPI, DPS) across hybrid multi-cloud environments.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item mt-8">
-                    <div class="flex items-center w-full">
-                        <div class="w-1/2 pr-8 text-right">
-                           <div class="p-4 bg-white rounded-lg shadow-md">
-                                <p class="font-bold text-cyan-700">Wireless Test Engineer</p>
-                                <p class="text-sm font-medium text-gray-600">Hewlett Packard Enterprise</p>
-                                <p class="text-xs text-gray-500">Oct 2013 - Aug 2016</p>
-                            </div>
-                        </div>
-                        <div class="w-1/2 pl-8 relative">
-                            <div class="absolute -left-1.5 top-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-600 rounded-full border-4 border-white"></div>
-                             <button class="toggle-button text-left w-full text-lg font-semibold text-gray-700 hover:text-cyan-700 transition-colors">
-                                Aruba Instant Access Point
-                                <span class="text-cyan-600 text-sm font-normal">(Click to expand)</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="timeline-item-content mt-4 pl-0 md:pl-[50%] md:ml-8">
-                         <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-cyan-100">
-                             <ul class="space-y-3 list-disc list-inside text-gray-600">
-                                <li>Engineered an innovative automation framework for distributed wireless systems, improving test coverage by 20%.</li>
-                                <li>Served as the Subject Matter Expert (SME) for WLAN standards and L2/L3 networking protocols.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                 <div class="timeline-item mt-8">
-                     <div class="flex items-center w-full flex-row-reverse">
-                        <div class="w-1/2 pl-8 text-left">
-                            <div class="p-4 bg-white rounded-lg shadow-md">
-                                <p class="font-bold text-cyan-700">Module Lead, QA Automation</p>
-                                <p class="text-sm font-medium text-gray-600">Calsoft</p>
-                                <p class="text-xs text-gray-500">Nov 2012 - Oct 2013</p>
-                            </div>
-                        </div>
-                        <div class="w-1/2 pr-8 relative text-right">
-                            <div class="absolute -right-1.5 top-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-600 rounded-full border-4 border-white"></div>
-                             <button class="toggle-button text-right w-full text-lg font-semibold text-gray-700 hover:text-cyan-700 transition-colors">
-                                <span class="text-cyan-600 text-sm font-normal">(Click to expand)</span>
-                                QA Automation
-                            </button>
-                        </div>
-                    </div>
-                     <div class="timeline-item-content mt-4 pr-0 md:pr-[50%] md:mr-8 text-right">
-                        <div class="p-6 bg-white rounded-lg shadow-md border-r-4 border-cyan-100 inline-block text-left">
-                             <ul class="space-y-3 list-disc list-inside text-gray-600">
-                                <li>Directed automation efforts for business-critical workflows, achieving 95% automation coverage for key regression suites.</li>
-                                <li>Saved over 100 person-hours per cycle through strategic automation of complex CLI-based configuration tasks.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="timeline-item mt-8">
-                    <div class="flex items-center w-full">
-                        <div class="w-1/2 pr-8 text-right">
-                           <div class="p-4 bg-white rounded-lg shadow-md">
-                                <p class="font-bold text-cyan-700">Quality Assurance Engineer</p>
-                                <p class="text-sm font-medium text-gray-600">Sandvine</p>
-                                <p class="text-xs text-gray-500">May 2012 - Nov 2012</p>
-                            </div>
-                        </div>
-                        <div class="w-1/2 pl-8 relative">
-                            <div class="absolute -left-1.5 top-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-600 rounded-full border-4 border-white"></div>
-                             <button class="toggle-button text-left w-full text-lg font-semibold text-gray-700 hover:text-cyan-700 transition-colors">
-                                Policy & Automation
-                                <span class="text-cyan-600 text-sm font-normal">(Click to expand)</span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="timeline-item-content mt-4 pl-0 md:pl-[50%] md:ml-8">
-                         <div class="p-6 bg-white rounded-lg shadow-md border-l-4 border-cyan-100">
-                             <ul class="space-y-3 list-disc list-inside text-gray-600">
-                                <li>Leveraged IaaS and an iTCL-based automation framework to achieve a 95% automation level.</li>
-                                <li>Performed regression and functional testing of the Policy engine (PCEF).</li>
-                                <li>Tested networking requirements such as 802.1ad and asymmetric VLAN.</li>
-                                <li>Contributed to the New Idea Generation forum, exploring new product solutions.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="timeline-item mt-8">
-                     <div class="flex items-center w-full flex-row-reverse">
-                        <div class="w-1/2 pl-8 text-left">
-                            <div class="p-4 bg-white rounded-lg shadow-md">
-                                <p class="font-bold text-cyan-700">Senior Engineer Testing</p>
-                                <p class="text-sm font-medium text-gray-600">Aricent Group</p>
-                                <p class="text-xs text-gray-500">Jul 2007 - Jan 2011</p>
-                            </div>
-                        </div>
-                        <div class="w-1/2 pr-8 relative text-right">
-                            <div class="absolute -right-1.5 top-1/2 -translate-y-1/2 w-4 h-4 bg-cyan-600 rounded-full border-4 border-white"></div>
-                             <button class="toggle-button text-right w-full text-lg font-semibold text-gray-700 hover:text-cyan-700 transition-colors">
-                                <span class="text-cyan-600 text-sm font-normal">(Click to expand)</span>
-                                System & Protocol Testing
-                            </button>
-                        </div>
-                    </div>
-                     <div class="timeline-item-content mt-4 pr-0 md:pr-[50%] md:mr-8 text-right">
-                        <div class="p-6 bg-white rounded-lg shadow-md border-r-4 border-cyan-100 inline-block text-left">
-                             <ul class="space-y-3 list-disc list-inside text-gray-600">
-                                <li>Developed test plans for system integration, functional, and performance testing.</li>
-                                <li>Conducted protocol-level testing for DHCP, 802.1, MSTP, and OSPF.</li>
-                                <li>Configured new network topologies in BSC using CISCO 3750 switches.</li>
-                                <li>Created a robust automation framework for release-independent testing suites.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
-
-            </div>
+        <section class="metrics" aria-label="Practical scale and scope">
+            <article class="metric">
+                <strong>15</strong>
+                <h2>Direct reports</h2>
+                <p>Current engineering leadership scope, alongside hands-on systems development.</p>
+            </article>
+            <article class="metric">
+                <strong>~260</strong>
+                <h2>Daily active users</h2>
+                <p>User-reported agent usage, tracked through router OpenTelemetry instrumentation; not independently audited.</p>
+            </article>
+            <article class="metric">
+                <strong>2</strong>
+                <h2>Live engineering agent systems</h2>
+                <p>Networking / web testing and monitoring workflows in live engineering use.</p>
+            </article>
         </section>
 
-        <section id="skills" class="py-16 bg-white rounded-lg shadow-lg">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Core Competencies</h2>
-                <p class="text-lg text-gray-500 mt-2">A snapshot of my technical and leadership skills.</p>
+        <section class="journey" id="journey" aria-labelledby="journey-title">
+            <div class="section-head">
+                <p class="eyebrow">01 / The journey</p>
+                <h2 id="journey-title">Learn the model.<br>Engineer the system.</h2>
+                <p>The questions evolved from “how does a model learn?” to “how can an agent help an engineer do meaningful work?”</p>
             </div>
-            <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-gray-700 mb-4">Test Automation & Strategy</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Test Driven Development (TDD)</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Threat Modeling</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Automation Framework Architecture</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>CI/CD Integration (Jenkins, GitHub)</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>System & Scale Testing</li>
+            <ol class="steps">
+                <li>
+                    <span class="step-number">01 / LEARN</span>
+                    <h3>Build from fundamentals.</h3>
+                    <p>Hands-on learning with <a href="https://github.com/karpathy/makemore" target="_blank" rel="noopener noreferrer">Andrej Karpathy's makemore (external)</a> made model behavior tangible, beyond the API surface. That curiosity remains part of how I approach engineering.</p>
+                </li>
+                <li>
+                    <span class="step-number">02 / BUILD</span>
+                    <h3>Connect models to workflows.</h3>
+                    <p>Since 2025, professional agent development has included an initial harness, multi-agent orchestration, federated MCP tools, a gateway and skills, plus routing, retrieval, and evaluation components that I built.</p>
+                </li>
+                <li>
+                    <span class="step-number">03 / EVALUATE</span>
+                    <h3>Make improvement inspectable.</h3>
+                    <p>Use bounded review loops, explicit acceptance decisions, and persisted outputs. Test context and routing choices against workflow outcomes rather than treating a fluent answer as proof.</p>
+                </li>
+                <li>
+                    <span class="step-number">04 / ENABLE</span>
+                    <h3>Grow the work with a team.</h3>
+                    <p>The team extended retrieval and routing and built the private inference stack. Together, the work supports live networking / web testing and monitoring agents—not just isolated demos.</p>
+                </li>
+            </ol>
+            <p class="principle"><strong>The through-line:</strong> curiosity at the model level, discipline at the system level, and usefulness at the human level. This is shared engineering work, not a claim of sole ownership of the entire stack.</p>
+        </section>
+
+        <section id="systems" aria-labelledby="systems-title">
+            <div class="section-head">
+                <p class="eyebrow">02 / System disciplines</p>
+                <h2 id="systems-title">Agents need more than a prompt.</h2>
+                <p>High-level architecture and engineering practices behind the work, without proprietary implementation details.</p>
+            </div>
+            <div class="grid">
+                <article class="card">
+                    <span class="card-label">Execution & integration</span>
+                    <h3>Give work a structure.</h3>
+                    <p>Python harnesses and multi-agent orchestration connect local inference to engineering tools through federated MCP and a gateway.</p>
+                    <ul><li>Networking and web testing workflows</li><li>Monitoring agent in live engineering use</li><li>vLLM and local inference integration</li></ul>
+                </article>
+                <article class="card">
+                    <span class="card-label">Context & evaluation</span>
+                    <h3>Review before retaining.</h3>
+                    <p>GraphRAG with Neo4j / FalkorDB supports contextual retrieval. Routing and evaluation shape what an agent sees and which outputs are accepted.</p>
+                    <ul><li>Budget-bounded review and refinement</li><li>Persist accepted outputs</li><li>Reusable skills and memory lifecycle</li></ul>
+                </article>
+                <article class="card">
+                    <span class="card-label">Control & observability</span>
+                    <h3>Keep boundaries explicit.</h3>
+                    <p>RBAC role permissions constrain actions. Selective human escalation through email, chat, or Slack keeps decisions with the right people.</p>
+                    <ul><li>OpenTelemetry routing and usage signals</li><li>Permission-aware tool access; no bypass</li><li>Explicit latency and token-budget tradeoffs</li></ul>
+                </article>
+            </div>
+            <details class="architecture">
+                <summary>Inside the review loop: ratchet, frontier judge, and Dream rounds</summary>
+                <div class="detail-body">
+                    <ol class="flow"><li>Execute an inner DAG</li><li>Review with a frontier judge</li><li>Refine within budget</li><li>Persist accepted outputs</li><li>Revisit reusable memory</li></ol>
+                    <p>A budget-bounded ratchet reviews an inner directed acyclic graph (DAG) of work. A frontier-model judge informs enrichment of context or parameters for subsequent attempts. Accepted outputs are persisted rather than treating every attempt as reusable knowledge.</p>
+                    <p>Dream rounds revisit accumulated memory to promote reusable skills or retire memory that should not be retained. These are workflow and memory refinements—not model-weight training. Judge acceptance is not a guarantee of correctness.</p>
+                </div>
+            </details>
+        </section>
+
+        <section id="career" aria-labelledby="career-title">
+            <div class="section-head">
+                <p class="eyebrow">03 / Career & craft</p>
+                <h2 id="career-title">A systems foundation.<br>A hands-on leadership practice.</h2>
+            </div>
+            <div class="two-col">
+                <div>
+                    <article class="current-role">
+                        <p class="date">October 2024 – present</p>
+                        <h3>Senior Cloud Engineering Manager</h3>
+                        <p><strong>HPE Aruba Networking</strong></p>
+                        <p>Leading 15 direct reports, with a focus on cloud engineering and practical agent enablement. Combining team leadership with hands-on infrastructure and evaluation work.</p>
+                    </article>
+                    <details>
+                        <summary>View previous roles · 2007–2024</summary>
+                        <div class="detail-body">
+                            <ol class="role-list">
+                                <li><h3>System Test Manager · Cloud Services & AI Initiatives</h3><p>HPE Aruba Networking</p><p>February 2022 – October 2024</p></li>
+                                <li><h3>System Test Engineer for Cloud Services</h3><p>HPE Aruba Networking</p><p>February 2018 – February 2022</p></li>
+                                <li><h3>Research Assistant</h3><p>Binghamton University</p><p>January 2017 – December 2017</p></li>
+                                <li><h3>Member of Technical Staff 4 (MTS4)</h3><p>Aruba</p><p>October 2013 – August 2016</p></li>
+                                <li><h3>Module Lead</h3><p>Calsoft</p><p>November 2012 – October 2013</p></li>
+                                <li><h3>Quality Assurance Engineer</h3><p>Sandvine</p><p>May 2012 – October 2012</p></li>
+                                <li><h3>Layer 3 Global support</h3><p>Aricent</p><p>January 2011 – May 2012</p></li>
+                                <li><h3>Senior Engineer Testing</h3><p>Aricent</p><p>June 2007 – January 2011</p></li>
+                            </ol>
+                        </div>
+                    </details>
+                </div>
+                <div>
+                    <h3>Technical toolkit</h3>
+                    <p>Engineering practices that carry across cloud platforms, test systems, and agent infrastructure.</p>
+                    <ul class="tags" aria-label="Technical competencies">
+                        <li>Python / Pytest</li><li>MCP</li><li>OpenTelemetry</li><li>REST / GraphQL</li><li>Playwright</li><li>Docker / Kubernetes</li><li>vLLM / local inference</li><li>GraphRAG</li><li>Neo4j / FalkorDB</li><li>Distributed systems</li><li>Networking / cloud systems</li><li>TDD</li><li>Architecture decision records</li>
                     </ul>
-                </div>
-                 <div class="p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-gray-700 mb-4">Leadership & Management</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Agile/Scrum Leadership</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Team Mentorship & Growth</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Cross-functional Collaboration</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Project Delivery & Vendor Management</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Hiring & Scaling Teams</li>
-                    </ul>
-                </div>
-                 <div class="p-6 rounded-lg">
-                    <h3 class="text-xl font-bold text-gray-700 mb-4">Platforms & Infrastructure</h3>
-                    <ul class="space-y-2 text-gray-600">
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Python (Advanced), Bash</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>AWS, Azure, GCP</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Docker, Kubernetes</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Linux OS/Kernel Internals</li>
-                        <li class="flex items-center"><span class="w-2 h-2 bg-cyan-500 rounded-full mr-3"></span>Networking: SD-WAN, TCP/IP, WLAN</li>
-                    </ul>
+                    <h3 class="craft-heading">How I work</h3>
+                    <p class="lead">Stay close to implementation. Make architecture decisions legible. Use tests and telemetry to challenge assumptions. Build team capability alongside the system.</p>
                 </div>
             </div>
         </section>
 
-        <section id="accomplishments" class="py-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Accomplishments in Action</h2>
-                <p class="text-lg text-gray-500 mt-2">Highlighting key achievements using the STAR method.</p>
+        <section id="research" aria-labelledby="research-title">
+            <div class="section-head">
+                <p class="eyebrow">04 / Research & learning</p>
+                <h2 id="research-title">Measure the tradeoff.<br>Keep learning.</h2>
+                <p>Personal experimentation and academic work complement—not substitute for—production evidence.</p>
             </div>
-            <div class="max-w-4xl mx-auto space-y-10">
-
-                <div class="star-card bg-white p-6 rounded-lg shadow-md border-l-4 border-cyan-600">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Driving Efficiency Through Automation</h3>
-                    <div class="space-y-3 text-gray-700">
-                        <div class="star-item"><span class="star-label">Situation:</span><span>The existing manual testing processes were hindering release velocity and consuming significant engineering resources.</span></div>
-                        <div class="star-item"><span class="star-label">Task:</span><span>Lead the adoption and integration of a more efficient automation strategy.</span></div>
-                        <div class="star-item"><span class="star-label">Action:</span><span>I spearheaded the adoption of a Pytest-based automation framework, overseeing its development and seamless integration into our Jenkins CI/CD pipeline.</span></div>
-                        <div class="star-item"><span class="star-label">Result:</span><span>This initiative led to a remarkable 90% reduction in manual testing efforts, which directly accelerated our release cycles and enhanced the reliability of our deliverables.</span></div>
-                    </div>
-                </div>
-
-                <div class="star-card bg-white p-6 rounded-lg shadow-md border-l-4 border-cyan-600">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Agile Leadership & Quality Enhancement</h3>
-                    <div class="space-y-3 text-gray-700">
-                        <div class="star-item"><span class="star-label">Situation:</span><span>Qualifying complex SD-WAN solutions required meticulous oversight and a well-coordinated team effort.</span></div>
-                        <div class="star-item"><span class="star-label">Task:</span><span>Manage the project teams responsible for these qualifications and optimize our agile processes.</span></div>
-                        <div class="star-item"><span class="star-label">Action:</span><span>I championed Agile methodologies, directing Scrum teams to break down multi-month release cycles into focused monthly sprints and collaborated closely with development, product, and support teams.</span></div>
-                        <div class="star-item"><span class="star-label">Result:</span><span>These efforts consistently resulted in predictable delivery timelines and a tangible enhancement in overall software quality.</span></div>
-                    </div>
-                </div>
-
-                <div class="star-card bg-white p-6 rounded-lg shadow-md border-l-4 border-cyan-600">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Strategic Cloud Cost Reduction</h3>
-                    <div class="space-y-3 text-gray-700">
-                        <div class="star-item"><span class="star-label">Situation:</span><span>Rising cloud operational expenditures presented a challenge that needed to be addressed without compromising service quality.</span></div>
-                        <div class="star-item"><span class="star-label">Task:</span><span>I took the initiative to analyze and reduce these cloud costs.</span></div>
-                        <div class="star-item"><span class="star-label">Action:</span><span>I re-architected our logging systems for greater efficiency and meticulously right-sized our public cloud cluster deployments.</span></div>
-                        <div class="star-item"><span class="star-label">Result:</span><span>These targeted actions delivered significant and measurable savings in operational expenditures.</span></div>
-                    </div>
-                </div>
-                
-                <div class="star-card bg-white p-6 rounded-lg shadow-md border-l-4 border-cyan-600">
-                    <h3 class="text-2xl font-bold text-gray-800 mb-4">AI/ML Innovation in Testing</h3>
-                    <div class="space-y-3 text-gray-700">
-                        <div class="star-item"><span class="star-label">Situation:</span><span>There was an opportunity to leverage AI/ML to further improve our processes and gain deeper insights.</span></div>
-                        <div class="star-item"><span class="star-label">Task:</span><span>Integrate AI tools and develop practical AI-driven solutions.</span></div>
-                        <div class="star-item"><span class="star-label">Action:</span><span>Utilized GitHub Co-pilot to boost script development, built and deployed inference pipelines using Langchain and Hugging Face, and designed critical MCP components for Aruba's NBAPIs.</span></div>
-                        <div class="star-item"><span class="star-label">Result:</span><span>These initiatives improved team productivity, provided valuable analytics, and advanced our network programmability.</span></div>
-                    </div>
-                </div>
-
-            </div>
-        </section>
-
-        <section id="innovation" class="py-16">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">Innovation & Research</h2>
-                <p class="text-lg text-gray-500 mt-2">A showcase of my contributions to technology and commitment to continuous learning.</p>
-            </div>
-            <div class="max-w-4xl mx-auto space-y-8">
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-gray-700 mb-4">AI/ML Learning & Projects</h3>
-                    <p class="text-gray-600">Actively expanding my expertise in Artificial Intelligence and Machine Learning. Currently pursuing an <span class="font-semibold">AI/ML Certification from Purdue University</span> and applying concepts through hands-on projects.</p>
-                    <p class="mt-2 text-gray-600">My public repositories include projects based on Andrej Karpathy's "makemore," Andrew Ng's Machine Learning course, and implementations using Langchain and Hugging Face.</p>
-                     <a href="https://github.com/pkapoor2" target="_blank" class="inline-block mt-4 text-cyan-600 font-semibold hover:underline">Explore my AI/ML Projects on GitHub &rarr;</a>
-                </div>
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-gray-700 mb-4">Granted U.S. Patents</h3>
-                    <p class="text-gray-600">6 U.S. patents in networked systems and wireless technology, including methods for:</p>
-                    <ul class="mt-4 space-y-2 list-disc list-inside text-cyan-800">
-                        <li>Managing network devices (US 10,812,484)</li>
-                        <li>Network traffic management (US 10,291,578)</li>
+            <div class="two-col">
+                <article class="benchmark">
+                    <p class="eyebrow">Personal engineering project</p>
+                    <h3>Local execution + frontier judgment</h3>
+                    <p>In my public personal benchmark, Qwen3-235B local execution with a frontier judge reached the same outcome as a frontier-only run, as reported by me.</p>
+                    <dl class="comparison">
+                        <div><dt>Local execution + frontier judge</dt><dd>$0.03 · 31 minutes</dd></div>
+                        <div><dt>Frontier-only run</dt><dd>$5.71 · 6 minutes</dd></div>
+                    </dl>
+                    <p>Lower paid token spend came with higher latency. This is one author-reported personal result, not an employer performance claim or a general benchmark.</p>
+                    <p class="fine">Dollar figures describe paid token spend, not total cost of ownership: hardware, energy, hosting, and engineering time are not represented.</p>
+                    <a href="https://www.linkedin.com/feed/update/urn:li:activity:7492463745756139520/" target="_blank" rel="noopener noreferrer">Read the personal benchmark on LinkedIn (external)</a>
+                </article>
+                <article class="card">
+                    <h3>Education & academic work</h3>
+                    <ul class="education">
+                        <li><strong>Post Graduate Program in AI / ML</strong>Purdue · 2025<br><span class="fine">Professional program, not a graduate degree.</span></li>
+                        <li><strong>MS, Computer Science</strong>Binghamton University · 2017</li>
+                        <li><strong>Master of Computer Applications</strong>Thapar · 2007</li>
                     </ul>
-                     <a href="https://scholar.google.com/citations?user=I-RSA4gAAAAJ" target="_blank" class="inline-block mt-4 text-cyan-600 font-semibold hover:underline">View on Google Scholar &rarr;</a>
-                </div>
-                 <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-bold text-gray-700 mb-4">Education & Publication</h3>
-                    <p class="font-semibold text-gray-700">Master of Science (MS), Computer Science</p>
-                    <p class="text-sm text-gray-500 mb-3">Binghamton University, State University of New York</p>
-                    <p class="text-gray-600 italic">Thesis: Detecting and Mitigating Spoofing Attack against an Automotive Radar.</p>
-                    <a href="https://ieeexplore.ieee.org/document/8506579" target="_blank" class="inline-block mt-4 text-cyan-600 font-semibold hover:underline">View Publication &rarr;</a>
-                </div>
+                    <p>Academic research: detecting and mitigating spoofing attacks against automotive radar.</p>
+                    <p><a href="https://ieeexplore.ieee.org/document/8506579" target="_blank" rel="noopener noreferrer">View the academic publication on IEEE Xplore (external)</a></p>
+                    <a href="https://github.com/pkapoor2" target="_blank" rel="noopener noreferrer">Explore my public projects on GitHub (external)</a>
+                </article>
             </div>
         </section>
 
+        <section class="contact" id="contact" aria-labelledby="contact-title">
+            <div class="two-col">
+                <div>
+                    <p class="eyebrow">05 / What's next</p>
+                    <h2 id="contact-title">Let's build useful systems.</h2>
+                    <p class="lead">Open to hands-on Engineering Manager / Senior Engineering Manager roles, and individual-contributor opportunities in agent infrastructure, evaluation, and developer experience.</p>
+                </div>
+                <div>
+                    <h3>Start a conversation</h3>
+                    <div class="contact-links">
+                        <a href="mailto:prateek.kapoor83@gmail.com">Email me</a>
+                        <a href="https://github.com/pkapoor2" target="_blank" rel="noopener noreferrer">GitHub (external)</a>
+                        <a href="https://www.linkedin.com/in/prateek-kapoor83/" target="_blank" rel="noopener noreferrer">LinkedIn profile (external)</a>
+                    </div>
+                    <p class="fine">Professional context, shared at a high level. External links open in a new tab.</p>
+                </div>
+            </div>
+        </section>
     </main>
-    
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6 text-center">
-            <p>&copy; 2025 Prateek Kapoor. All Rights Reserved.</p>
-            <p class="text-sm text-gray-400 mt-2">Built to showcase skills in a modern, interactive format.</p>
-        </div>
-    </footer>
-
+    <footer><div class="wrap"><span>© 2026 Prateek Kapoor</span><span>Built with HTML, CSS, and a little JavaScript. No analytics.</span></div></footer>
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const mobileMenuButton = document.getElementById('mobile-menu-button');
-            const mobileMenu = document.getElementById('mobile-menu');
-            mobileMenuButton.addEventListener('click', () => {
-                mobileMenu.classList.toggle('hidden');
-            });
+        const menuButton = document.getElementById('menu-button');
+        const navigation = document.getElementById('navigation');
+        const mobileLayout = matchMedia('(max-width: 720px)');
 
-            const toggleButtons = document.querySelectorAll('.toggle-button');
-            toggleButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const content = button.closest('.timeline-item').querySelector('.timeline-item-content');
-                    content.classList.toggle('open');
-                });
-            });
+        function closeMenu(returnFocus = false) {
+            navigation.classList.remove('is-open');
+            menuButton.setAttribute('aria-expanded', 'false');
+            menuButton.textContent = 'Menu';
+            if (returnFocus) menuButton.focus();
+        }
 
-            const navLinks = document.querySelectorAll('nav a.nav-link');
-            const sections = document.querySelectorAll('section');
-
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        navLinks.forEach(link => {
-                            link.classList.remove('active');
-                            if (link.getAttribute('href').substring(1) === entry.target.id) {
-                                link.classList.add('active');
-                            }
-                        });
-                    }
-                });
-            }, { rootMargin: "-50% 0px -50% 0px" });
-
-            sections.forEach(section => {
-                observer.observe(section);
-            });
+        menuButton.addEventListener('click', () => {
+            const open = menuButton.getAttribute('aria-expanded') !== 'true';
+            navigation.classList.toggle('is-open', open);
+            menuButton.setAttribute('aria-expanded', String(open));
+            menuButton.textContent = open ? 'Close menu' : 'Menu';
         });
+        navigation.addEventListener('click', event => {
+            const link = event.target.closest('a');
+            if (link && mobileLayout.matches) {
+                closeMenu();
+                document.querySelector(link.getAttribute('href')).focus({ preventScroll: true });
+            }
+        });
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape' && mobileLayout.matches && menuButton.getAttribute('aria-expanded') === 'true') {
+                closeMenu(true);
+            }
+        });
+        mobileLayout.addEventListener('change', () => {
+            const focusWillHide = mobileLayout.matches && navigation.contains(document.activeElement);
+            closeMenu(focusWillHide);
+        });
+        document.querySelectorAll('main section[id]').forEach(section => section.setAttribute('tabindex', '-1'));
+        document.documentElement.classList.add('nav-ready');
     </script>
 </body>
 </html>

@@ -1,0 +1,27 @@
+# Private documents and local credentials
+private/
+.env
+.env.*
+credentials*.json
+client_secret*.json
+*token*.json
+*.key
+*.pem
+*.p12
+*.pfx
+*.pdf
+*.doc
+*.docx
+*.csv
+*.db
+*.db-*
+*.sqlite*
+exports/
+data/
+logs/
+*.log
+.vscode/
+node_modules/
+playwright/.auth/
+storage-state*.json
+storage_state*.json
