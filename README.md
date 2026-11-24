@@ -8,6 +8,15 @@ Open [index.html](index.html) directly in a browser. No installation, build step
 
 The mobile navigation supports keyboard interaction, expanded-state announcements, Escape to close, and focus restoration. Without JavaScript, navigation links remain visible. Past roles and architecture notes use native expandable details. Layouts adapt to narrow screens, and smooth scrolling respects reduced-motion preferences.
 
+## Agent-readable profile
+
+- Embedded Schema.org JSON-LD describes the `ProfilePage` and its `Person`, including role, organization, expertise, and public identity links. It is static data, not an external script or service.
+- [profile.md](profile.md) provides the approved public narrative as plain Markdown. A visible footer link and an HTML alternate link make it discoverable.
+- The canonical URL is https://pkapoor2.github.io/AboutMe/. The Markdown profile is published alongside it at https://pkapoor2.github.io/AboutMe/profile.md.
+- Keep the page, JSON-LD, and Markdown aligned when changing public facts. Validate JSON syntax and compare role, identity links, metrics, dates, ownership, and benchmark scope before release. Update the Markdown revision date when its content changes.
+
+The HTML remains readable without JavaScript. No WebMCP endpoint, agent tools, external requests, or private-data integration is introduced. Structured metadata improves machine readability; it does not guarantee discovery or indexing by any particular agent or search engine.
+
 ## Update and content decisions
 
 - Updated current and previous roles and dates, and separated 15 direct reports from approximately 260 daily active engineers, measured through router OpenTelemetry instrumentation.
