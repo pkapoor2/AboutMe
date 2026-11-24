@@ -13,7 +13,7 @@ Hands-on cloud engineering leader building practical engineering agents, evaluat
 
 I lead 15 direct reports and stay close to the code: building agent infrastructure, evaluating behavior, and turning experiments into useful engineering workflows. My foundation is networking, distributed systems, and test automation. My professional agent work began in 2025.
 
-- Approximately 260 engineers use the agent platform daily, measured through router OpenTelemetry instrumentation.
+- Approximately 270 engineers use the agent platform daily, measured through router OpenTelemetry instrumentation.
 - Two live engineering agent systems support networking / web testing and monitoring workflows.
 
 ## Journey: from makemore to engineering agents

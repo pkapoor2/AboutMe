@@ -19,7 +19,7 @@ The HTML remains readable without JavaScript. No WebMCP endpoint, agent tools, e
 
 ## Update and content decisions
 
-- Updated current and previous roles and dates, and separated 15 direct reports from approximately 260 daily active engineers, measured through router OpenTelemetry instrumentation.
+- Updated current and previous roles and dates, and separated 15 direct reports from approximately 270 daily active engineers, measured through router OpenTelemetry instrumentation.
 - Distinguished initial components built by Prateek from team extensions to retrieval/routing and the team's private inference stack. Live engineering workflows are described at a high level.
 - Explained bounded review, accepted outputs, memory lifecycle, role permissions, and selective human escalation in direct engineering language.
 - Presented the linked personal engineering benchmark with its paid token spend, elapsed time, and cost–latency tradeoff.
