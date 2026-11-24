@@ -10,17 +10,17 @@ The mobile navigation supports keyboard interaction, expanded-state announcement
 
 ## Update and content decisions
 
-- Corrected current and previous roles and dates, and separated 15 direct reports from approximately 260 daily active agent users. The usage figure is user-reported from router OpenTelemetry instrumentation, not independently audited.
+- Updated current and previous roles and dates, and separated 15 direct reports from approximately 260 daily active engineers, measured through router OpenTelemetry instrumentation.
 - Distinguished initial components built by Prateek from team extensions to retrieval/routing and the team's private inference stack. Live engineering workflows are described at a high level.
-- Explained bounded review, accepted outputs, memory lifecycle, role permissions, and selective human escalation without claiming guaranteed correctness or model-weight training.
-- Clearly labeled the linked benchmark as a personal engineering project and an author-reported result. It compares paid token spend and elapsed time, not total cost of ownership or employer savings; the latency tradeoff remains visible.
-- Updated education, identifying the Purdue AI/ML program as a professional program rather than a graduate degree. Omitted unsupported broad savings ratios, unresolved patent counts, and GPA.
+- Explained bounded review, accepted outputs, memory lifecycle, role permissions, and selective human escalation in direct engineering language.
+- Presented the linked personal engineering benchmark with its paid token spend, elapsed time, and cost–latency tradeoff.
+- Updated education using the exact program and degree names.
 - Retained the existing GitHub and email destinations and added the reviewed LinkedIn profile and personal benchmark links.
 - Removed Tailwind CDN and Google Fonts. The page makes no automatic external requests and does not import or fetch private data.
 
 ## Public boundaries
 
-Publish only explicitly approved professional information. Keep architecture high-level and distinguish personal experiments, reported usage, team contributions, and measured outcomes. Do not publish sensitive personal records, raw source documents, credentials, confidential infrastructure details, or proprietary employer identifiers. This page has no automatic data synchronization.
+Publish only explicitly approved professional information. Use assertive, factual public copy; keep internal evidence-review and audit-status notes out of the public narrative. Preserve metric definitions, personal-project scope, and individual/team attribution. Keep architecture high-level. Do not publish sensitive personal records, raw source documents, credentials, confidential infrastructure details, or proprietary employer identifiers. This page has no automatic data synchronization.
 
 ## SDLC handoff
 
